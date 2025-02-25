@@ -1,0 +1,13 @@
+<svg  class="bn-bgwrap__backdrop-line" width="1370" height="2272" viewBox="0 0 1370 2272" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 1L250 316.5C434.718 316.5 538.282 316.5 723 316.5L838.5 458.5L955 597.5C955 597.5 955 749.438 955 903.5L382 1381.5H1352L510 2262.5H457.5" stroke="#EBEBED" stroke-width="2" stroke-miterlimit="10"/>
+  <circle cx="509" cy="2262" r="10" fill="#FF433A"/>
+  <ellipse cx="954.969" cy="605.039" rx="7.96863" ry="8.11173" fill="url(#paint0_radial_2358_1248)"/>
+  <circle cx="1352" cy="1382" r="14" fill="#FF433A" stroke="#212121" stroke-width="8"/>
+  <circle cx="381" cy="1381" r="14" fill="#FF433A" stroke="#212121" stroke-width="8"/>
+  <defs>
+  <radialGradient id="paint0_radial_2358_1248" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(969.355 588.816) rotate(133.864) scale(27.9385 27.9232)">
+  <stop offset="0.138616" stop-color="#2E8BFF"/>
+  <stop offset="1" stop-color="#0059C9"/>
+  </radialGradient>
+  </defs>
+</svg>

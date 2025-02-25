@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <svg width="100%" height="100" viewBox="0 0 800 100">
+    <path d="M10 50 H100" stroke="black" fill="none" stroke-width="2"/>
+</svg>
+<script>
+    function extendPathToWindowWidth(svgPathElement) {
+    let pathData = svgPathElement.getAttribute("d");
+    
+    // Regex to extract commands and values
+    const regex = /([MLCQTAZH])([^MLCQTAZH]*)/gi;
+    let matches = [...pathData.matchAll(regex)];
+
+    if (!matches.length) return;
+
+    let currentX = 0, currentY = 0;
+
+    for (let match of matches) {
+        let command = match[1];
+        let values = match[2].trim().split(/[\s,]+/).map(Number);
+
+        switch (command) {
+            case "M": // Move To
+            case "L": // Line To
+                [currentX, currentY] = values.slice(-2);
+                break;
+            case "H": // Horizontal Line To
+                currentX = values[0]; // Only X changes
+                break;
+            case "V": // Vertical Line To
+                currentY = values[0]; // Only Y changes
+                break;
+            case "C": // Cubic Bézier
+                [currentX, currentY] = values.slice(-2);
+                break;
+            case "Q": // Quadratic Bézier
+            case "T": // Smooth Quadratic Bézier
+                [currentX, currentY] = values.slice(-2);
+                break;
+            case "A": // Arc
+                [currentX, currentY] = values.slice(-2);
+                break;
+            case "Z": // Close path (no change in position)
+                break;
+        }
+    }
+
+    // Get the new end position based on window width
+    let newX = window.innerWidth;
+
+    // Append an extended horizontal line (`H newX`)
+    let newPathData = `${pathData} H${newX}`;
+
+    // Update the path
+    svgPathElement.setAttribute("d", newPathData);
+}
+
+// Example usage
+let pathElement = document.querySelector("path"); // Select the SVG path element
+extendPathToWindowWidth(pathElement);
+
+window.addEventListener("resize", () => extendPathToWindowWidth(pathElement)); // Update on resize
+</script>
+</body>
+</html>
