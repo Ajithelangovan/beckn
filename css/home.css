@@ -1797,6 +1797,14 @@ a {
     --infinite-height: 960px;
   }
 }
+@media (min-width: 992px) {
+  .bn-section--home-infinite {
+    --infinite-padding-top: 33rem;
+    --infinite-height: 1350px;
+    --infinite-height: 1520px;
+    --infinite-padding-top: 5.1rem;
+  }
+}
 @media (min-width: 1200px) {
   .bn-section--home-infinite {
     --infinite-padding-top: 17.6rem;
@@ -1847,6 +1855,11 @@ a {
   --indent: 0;
 }
 @media (min-width: 992px) {
+  .bn-section--home-infinite .bn-section__title .bn-text-indent {
+    --indent: 33.24%;
+  }
+}
+@media (min-width: 1200px) {
   .bn-section--home-infinite .bn-section__title .bn-text-indent {
     --indent: 37.24%;
   }

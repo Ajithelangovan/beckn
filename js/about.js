@@ -6,7 +6,8 @@ const onReady = () => {
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
     smooth: 2,
-    smoothTouch: 0.1
+    smoothTouch: 0.1,
+    ignoreMobileResize: false,
   })
   
   const masterTl = gsap.timeline();

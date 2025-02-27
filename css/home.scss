@@ -566,6 +566,13 @@
           --infinite-height: 960px;
         }
 
+        @media (min-width: $breakpoint-lg) {
+          --infinite-padding-top: 33rem;
+          --infinite-height: 1350px;
+          --infinite-height: 1520px;
+          --infinite-padding-top: 5.1rem;
+        }
+
 
         @media (min-width: $breakpoint-xl) {
           --infinite-padding-top: 17.6rem;
@@ -635,6 +642,9 @@
               --indent: 0;
 
               @media (min-width: $breakpoint-lg) {
+                --indent: 33.24%;
+              }
+              @media (min-width: $breakpoint-xl) {
                 --indent: 37.24%;
               }
             }

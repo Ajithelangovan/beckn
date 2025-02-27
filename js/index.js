@@ -2,16 +2,21 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 ScrollTrigger.normalizeScroll(true);
 
-let smoother = ScrollSmoother.create({
-  wrapper: "#smooth-wrapper",
-  content: "#smooth-content",
-  normalizeScroll: {
-    allowNestedScroll: [".bn-mobilenav", ".bn-header__mobile-menu", '#usecasecardsMobile', '.bn-section--home-possibilities']
-  },
-  smooth: 2,
-  smoothTouch: 0.1,
-  ignoreMobileResize: true,
-})
+
+if (ScrollTrigger.isTouch !== 1) {
+  // only create if it's not a touch-only device...
+  let smoother = ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    normalizeScroll: {
+      allowNestedScroll: [".bn-mobilenav", ".bn-header__mobile-menu", '#usecasecardsMobile', '.bn-section--home-possibilities']
+    },
+    smooth: 2,
+    smoothTouch: 0.1,
+    ignoreMobileResize: true,
+  })
+}
+
 
 
 
@@ -553,26 +558,39 @@ const onReady = () => {
     const sectionCommunity = main.querySelector('.bn-section--home-community'),
       commnunityCards = sectionCommunity.querySelectorAll(".bn-communitycards__item");
 
-    const communityTl = gsap.timeline({
-      id: "communityTimeline",
-      scrollTrigger: {
-        trigger: sectionCommunity,
-        scrub: 1,
-        start: "top center",
-        end: "bottom center",
-        // markers: true,
-        onEnter: () => {
-          gsap
-            .from(commnunityCards, {
-              opacity: 0,
-              y: () => `+=${commnunityCards.length * 25}`,
-              duration: 1,
-              stagger: 0.2,
-              ease: "expo",
-            }, "-=0.8");
+    mm.add(
+      {
+        isMobile: "(max-width: 1079px)",
+        isDesktop: "(min-width: 1080px)"
+      },
+      (context) => {
+        const { isMobile, isDesktop } = context.conditions;
+
+        if(isDesktop) {
+          const communityTl = gsap.timeline({
+            id: "communityTimeline",
+            scrollTrigger: {
+              trigger: sectionCommunity,
+              scrub: 1,
+              start: "top center",
+              end: "bottom center",
+              // markers: true,
+              onEnter: () => {
+                gsap
+                  .from(commnunityCards, {
+                    opacity: 0,
+                    y: () => `+=${commnunityCards.length * 25}`,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: "expo",
+                  }, "-=0.8");
+              }
+            }
+          });
         }
       }
-    });
+    )
+
   }
 
   
@@ -581,22 +599,33 @@ const onReady = () => {
   const visualStickyContainer = document.querySelector('.bn-section--home-visual-design .bn-sticycolumn');
   // Seciton - Community: End
   function initializeScrollTrigger() {
-    if (window.innerWidth >= 992) {
-      ScrollTrigger.create({
-        trigger: '.bn-section--home-visual-design .bn-section__title',
-        pin: true,
-        start: "top",
-        end: "+=75%",
-        // markers: true,
-        pinSpacing: "margin",
-        onEnter: (self) => {
-          gsap.to(self.trigger, { marginTop: "150px", duration: 0.3 });
-        },
-        onLeaveBack: (self) => {
-          gsap.to(self.trigger, { marginTop: "0px", duration: 0.3 });
-        },
-      });
-    }
+    mm.add(
+      {
+        isMobile: "(max-width: 1079px)",
+        isDesktop: "(min-width: 1080px)"
+      },
+      (context) => {
+        const { isMobile, isDesktop } = context.conditions;
+
+        if (isDesktop) {
+          ScrollTrigger.create({
+            trigger: '.bn-section--home-visual-design .bn-section__title',
+            pin: true,
+            start: "top",
+            end: "+=75%",
+            // markers: true,
+            pinSpacing: "margin",
+            onEnter: (self) => {
+              gsap.to(self.trigger, { marginTop: "150px", duration: 0.3 });
+            },
+            onLeaveBack: (self) => {
+              gsap.to(self.trigger, { marginTop: "0px", duration: 0.3 });
+            },
+          });
+
+        }
+      }
+    )
   }
 
   // Call the function on load
