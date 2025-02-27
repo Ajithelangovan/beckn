@@ -9,14 +9,14 @@ Template Name: Home Page Template
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Home - Beckn protocol</title>
-    <meta name="description" content="Beckn Protocol (or Beckn in short) enables the creation of open, peer-to-peer decentralized networks for pan-sector economic transactions.The protocol can be">
-    <meta property="og:locale" content="en_US"/>
+	<meta name="description" content="Beckn Protocol (or Beckn in short) enables the creation of open, peer-to-peer decentralized networks for pan-sector economic transactions.The protocol can be">
+	<meta property="og:locale" content="en_US"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Home - Beckn protocol"/>
 <meta property="og:description" content="Beckn Protocol (or Beckn in short) enables the creation of open, peer-to-peer decentralized networks for pan-sector economic transactions.The protocol can be"/>
 <meta property="og:url" content="https://becknprotocol.io/"/>
 <meta property="og:site_name" content="Beckn protocol"/>
-    <meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Home - Beckn protocol"/>
 <meta name="twitter:description" content="Beckn Protocol (or Beckn in short) enables the creation of open, peer-to-peer decentralized networks for pan-sector economic transactions.The protocol can be"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,7 +103,7 @@ Template Name: Home Page Template
           <li class="bn-header__nav-item">
             <a class="bn-header__nav-link" href="<?php echo site_url(); ?>/all-projects/">Live Networks</a>
           </li>
-            <li class="bn-header__nav-item">
+			<li class="bn-header__nav-item">
             <a class="bn-header__nav-link" href="https://energy.becknprotocol.io/">Digital Energy Grid</a>
           </li>
 <!--           <li class="bn-header__nav-item">
@@ -174,8 +174,8 @@ Template Name: Home Page Template
                 </li>
               </ul>
             </div>
-              
-                          
+			  
+			  			
 
             <div class="bn-mobilenav__menu">
               <div class="bn-mobilenav__menu-header">
@@ -192,8 +192,8 @@ Template Name: Home Page Template
                 
               </div>
             </div>
-              
-                <div class="bn-mobilenav__menu">
+			  
+			    <div class="bn-mobilenav__menu">
               <div class="bn-mobilenav__menu-header">
                 <a class="bn-mobilenav__menu-title" href="https://energy.becknprotocol.io/">Digital Energy Grid</a>
                 
@@ -591,8 +591,8 @@ Template Name: Home Page Template
                       </radialGradient>
                     </defs>
                   </svg>
-                    
-                    <!-- <svg id="lineStreakTablet" class="bn-streakline-tablet" viewBox="0 0 371 1527" fill="none" xmlns="http://www.w3.org/2000/svg">
+					
+					<!-- <svg id="lineStreakTablet" class="bn-streakline-tablet" viewBox="0 0 371 1527" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path  class="main-path" d="M7 7L24.5 44.5H344.5L174.5 205.5V750.5L14 935.5H361L24 1520.5H102.5" stroke="url(#paint0_linear_3068_1303)" stroke-width="2" stroke-miterlimit="10"/>
                     <path class="red-stroke" d="M7 7L24.5 44.5H344.5L174.5 205.5V750.5L14 935.5H361L24 1520.5H102.5" stroke="#FF433A" stroke-width="2" stroke-miterlimit="10"/>
                     <circle cx="176" cy="204" r="8" fill="url(#paint1_radial_3068_1302)"/>
@@ -1576,7 +1576,7 @@ Template Name: Home Page Template
             <div class="container">
               <div class="row align-items-lg-stretch lg:h-100">
                 <div class="col-lg-4 bn-sticycolumn">
-                    <h2 class="bn-section__title">Visual language <br/><i> story & origin</i></h2>
+					<h2 class="bn-section__title">Visual language <br/><i> story & origin</i></h2>
                 </div>
                 <div class="col-lg-8">
                     <p class="bn-section__desc">Each visual element is deeply rooted in beckn’s core values, anchoring openness and interoperability at the heart of the brand. They weave our philosophy into a visual language that conveys connectivity, creativity and community.</p>
@@ -1857,8 +1857,14 @@ Template Name: Home Page Template
                   <p class="bn-footer__desc">Subscribe to our newsletter for the latest beckn-powered news, events and more!</p>
                 </div>
                 <div class="col-md-9 col-lg-7 offset-lg-1 col-xl-8">
-                    <?php display_subscribe_form(); ?>
-                     <p class="bn-footer__subscription-desc col-lg-5">You can unsubscribe at any time using the link in our emails.</p>
+                   <div class="bn-footer__subscription">
+                    <div class="bn-footer__subscription-form">
+<!--                       <input class="bn-footer__subscription-form-input" placeholder="Enter email address"/>
+                      <div class="bn-footer__subscription-form-btn">Subscribe</div> -->
+						<?php display_subscribe_form(); ?>
+                    </div>
+                    <p class="bn-footer__subscription-desc col-lg-5">You can unsubscribe at any time using the link in our emails.</p>
+                  </div>
                 </div>
               </div>
             </div>
